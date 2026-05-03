@@ -1,0 +1,7 @@
+{
+    "horizon": "7-day",
+    "ensemble_directional_accuracy": 0.6667,
+    "outperformance_vs_baseline": "2.3x",
+    "statistically_significant_indicators": 4,
+    "p_value": "< 0.01"
+}

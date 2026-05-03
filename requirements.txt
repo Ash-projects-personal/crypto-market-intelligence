@@ -1,0 +1,1 @@
+pandas\nnumpy\nmatplotlib\nstatsmodels\ntensorflow\nscikit-learn
