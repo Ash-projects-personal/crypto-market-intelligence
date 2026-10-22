@@ -1,14 +1,2 @@
 __pycache__/
-*.pyc
 .venv/
-.env
-.pytest_cache/
-.ruff_cache/
-.mypy_cache/
-.DS_Store
-.idea/
-.vscode/
-outputs/*.png
-outputs/*.json
-*.csv
-*.pkl

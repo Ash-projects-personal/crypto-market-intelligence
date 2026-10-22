@@ -1,0 +1,71 @@
+{
+  "dataset": {
+    "name": "BTC-USD daily candles, Coinbase Exchange public API",
+    "source": "https://api.exchange.coinbase.com/products/BTC-USD/candles",
+    "snapshot_file": "data/btc_usd_daily.csv",
+    "candles_raw": 2852,
+    "rows_after_features": 2796,
+    "date_min": "2019-01-01",
+    "date_max": "2026-10-22",
+    "note": "Real exchange data. No sentiment data is used in this version."
+  },
+  "task": "predict whether close in 7 days is above today's close",
+  "split": "first 70% of usable rows train, last 30% test, split date 2024-06-29",
+  "train_rows": 1957,
+  "test_rows": 839,
+  "features": [
+    "ret_1",
+    "ret_7",
+    "ret_14",
+    "ret_30",
+    "vol_14",
+    "vol_30",
+    "ma_ratio_20",
+    "ma_ratio_50",
+    "volume_change_7",
+    "rsi_14"
+  ],
+  "results": {
+    "logistic_regression": {
+      "accuracy": 0.48867699642431467,
+      "balanced_accuracy": 0.4820439154524933,
+      "f1_up": 0.5535900104058272,
+      "n": 839,
+      "actual_up_rate": 0.5280095351609059
+    },
+    "gradient_boosting": {
+      "accuracy": 0.4970202622169249,
+      "balanced_accuracy": 0.4986518685728618,
+      "f1_up": 0.4964200477326969,
+      "n": 839,
+      "actual_up_rate": 0.5280095351609059
+    },
+    "ensemble_soft_vote": {
+      "accuracy": 0.5184743742550656,
+      "balanced_accuracy": 0.5184320632966231,
+      "f1_up": 0.5324074074074074,
+      "n": 839,
+      "actual_up_rate": 0.5280095351609059,
+      "binom_p_vs_0.5": 0.15016584758215554
+    },
+    "baseline_always_up": {
+      "accuracy": 0.5280095351609059,
+      "balanced_accuracy": 0.5,
+      "f1_up": 0.6911076443057722,
+      "n": 839,
+      "actual_up_rate": 0.5280095351609059
+    },
+    "baseline_momentum_ret7": {
+      "accuracy": 0.48510131108462456,
+      "balanced_accuracy": 0.48348040221629385,
+      "f1_up": 0.5124153498871332,
+      "n": 839,
+      "actual_up_rate": 0.5280095351609059
+    }
+  },
+  "context": {
+    "test_period_buy_and_hold_note": "Buy and hold return over the test window is context only, not a model score. It is in run_log.txt.",
+    "buy_and_hold_compound_per_7d_block": 0.01836177952252882
+  },
+  "runtime_seconds": 3.0
+}
